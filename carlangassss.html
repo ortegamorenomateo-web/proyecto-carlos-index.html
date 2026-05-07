@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biografía - Ortega Moreno Carlos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #e6e0f8 0%, #f3e5f5 100%);
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header con título */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .header h1 {
+            font-size: 5rem;
+            line-height: 0.9;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            font-weight: 900;
+            letter-spacing: -3px;
+            text-transform: uppercase;
+        }
+
+        .header h1 .outline {
+            color: transparent;
+            -webkit-text-stroke: 2px #7e57c2;
+            display: inline-block;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #666;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Sección Principal */
+        .main-content {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(126, 87, 194, 0.15);
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .profile-section {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            padding: 60px;
+            background: linear-gradient(to right, #f8f6ff 0%, #ffffff 50%);
+        }
+
+        .profile-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .avatar {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #7e57c2, #9575cd);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(126, 87, 194, 0.3);
+            animation: scaleIn 0.8s ease;
+        }
+
+        .profile-info h2 {
+            font-size: 2.5rem;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            animation: slideInRight 0.6s ease;
+        }
+
+        .profile-info p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            animation: slideInRight 0.7s ease;
+        }
+
+        .info-highlight {
+            background: linear-gradient(to right, #7e57c2, #9575cd);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            animation: slideInRight 0.8s ease;
+        }
+
+        /* Pestañas */
+        .tabs-container {
+            padding: 0 60px;
+        }
+
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            border-bottom: 3px solid #f0f0f0;
+            overflow-x: auto;
+        }
+
+        .tab-button {
+            padding: 15px 25px;
+            background: none;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #999;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .tab-button:hover {
+            color: #7e57c2;
+        }
+
+        .tab-button.active {
+            color: #7e57c2;
+            border-bottom-color: #7e57c2;
+        }
+
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, #7e57c2, #9575cd);
+            animation: expandWidth 0.3s ease;
+        }
+
+        /* Contenido de pestañas */
+        .tab-content {
+            padding: 40px 60px;
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tab-content h3 {
+            font-size: 2rem;
+            color: #7e57c2;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .tab-content h3::before {
+            content: '';
+            width: 5px;
+            height: 30px;
+            background: linear-gradient(to bottom, #7e57c2, #9575cd);
+            border-radius: 2px;
+        }
+
+        .content-item {
+            background: #f8f6ff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #7e57c2;
+            transition: all 0.3s ease;
+            animation: slideInLeft 0.5s ease;
+        }
+
+        .content-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(126, 87, 194, 0.2);
+        }
+
+        .content-item h4 {
+            color: #7e57c2;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .content-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .emoji {
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+
+        /* Animaciones */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes expandWidth {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, #7e57c2, #9575cd);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            animation: scaleIn 0.6s ease;
+        }
+
+        .stat-box h4 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .stat-box p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .profile-section {
+                grid-template-columns: 1fr;
+                padding: 40px 20px;
+            }
+
+            .profile-image {
+                order: -1;
+            }
+
+            .header h1 {
+                font-size: 3rem;
+            }
+
+            .tab-content {
+                padding: 20px;
+            }
+
+            .tabs-container {
+                padding: 0 20px;
+            }
+
+            .tabs {
+                gap: 5px;
+            }
+
+            .tab-button {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>
+                Auto
+                <span class="outline">bio</span>
+                grafía
+            </h1>
+            <p>Ortega Moreno Carlos • Est. 2026 • Prepa 115</p>
+        </div>
+
+        <!-- Contenido Principal -->
+        <div class="main-content">
+            <!-- Sección de Perfil -->
+            <div class="profile-section">
+                <div class="profile-image">
+                    <div class="avatar">👨‍💼</div>
+                </div>
+                <div class="profile-info">
+                    <h2>¡Hola! Soy Carlos</h2>
+                    <p>Mi nombre es <strong>Ortega Moreno Carlos</strong>, tengo <strong>17 años</strong> y soy estudiante de preparatoria en mi último semestre.</p>
+                    <p>Vivo en <strong>Ecatepec de Morelos, Estado de México</strong>, un lugar que ha moldeado mis valores y aspiraciones.</p>
+                    
+                    <div class="info-highlight">
+                        <strong>🎯 Mi Mayor Sueño:</strong> Ser futbolista profesional
+                    </div>
+
+                    <p><strong>Mis Papás:</strong> Carlos y Guadalupe</p>
+                    <p><strong>Futuro Académico:</strong> Deseo estudiar <strong>Ingeniería Industrial</strong> o <strong>Ingeniería Aeronáutica</strong></p>
+
+                    <div class="stats">
+                        <div class="stat-box">
+                            <h4>17</h4>
+                            <p>Años</p>
+                        </div>
+                        <div class="stat-box">
+                            <h4>Último</h4>
+                            <p>Semestre</p>
+                        </div>
+                        <div class="stat-box">
+                            <h4>Dos</h4>
+                            <p>Opciones</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pestañas -->
+            <div class="tabs-container">
+                <div class="tabs">
+                    <button class="tab-button active" onclick="openTab(event, 'autobiografia')">
+                        📖 Autobiografía
+                    </button>
+                    <button class="tab-button" onclick="openTab(event, 'futbol')">
+                        ⚽ Fútbol
+                    </button>
+                    <button class="tab-button" onclick="openTab(event, 'basquetbol')">
+                        🏀 Basquetbol
+                    </button>
+                    <button class="tab-button" onclick="openTab(event, 'salud')">
+                        💪 Salud
+                    </button>
+                    <button class="tab-button" onclick="openTab(event, 'negocios')">
+                        💼 Negocios
+                    </button>
+                    <button class="tab-button" onclick="openTab(event, 'videojuegos')">
+                        🎮 Videojuegos
+                    </button>
+                </div>
+
+                <!-- TAB: AUTOBIOGRAFÍA -->
+                <div id="autobiografia" class="tab-content active">
+                    <h3>Mi Historia</h3>
+                    <div class="content-item">
+                        <h4>📍 Procedencia</h4>
+                        <p>Soy originario de Ecatepec de Morelos, un municipio del Estado de México con una rica historia y cultura. Este lugar ha sido fundamental en mi desarrollo como persona y en la formación de mis valores.</p>
+                    </div>
+                    <div class="content-item">
+                        <h4>👨‍👩‍👦 Familia</h4>
+                        <p>Mi nombre completo es <strong>Ortega Moreno Carlos</strong>. Mis padres, <strong>Carlos</strong> y <strong>Guadalupe</strong>, han sido mi mayor inspiración y apoyo. Ellos me han enseñado la importancia del esfuerzo, la dedicación y los valores.</p>
+                    </div>
+                    <div class="content-item">
+                        <h4>🎓 Educación</h4>
+                        <p>Actualmente estoy cursando mi último semestre de preparatoria en la Prepa 115. Durante estos años, he desarrollado una pasión por aprender y mejorar constantemente. He participado en diversas actividades deportivas y académicas que han complementado mi formación.</p>
+                    </div>
+                    <div class="content-item">
+                        <h4>🎯 Aspiraciones Futuras</h4>
+                        <p>Mi mayor sueño siempre fue ser futbolista profesional, un objetivo que alimentó mi amor por el deporte desde pequeño. Sin embargo, también tengo una fuerte inclinación hacia la ingeniería. Planeo estudiar <strong>Ingeniería Industrial</strong> o <strong>Ingeniería Aeronáutica</strong> para combinar mi pasión por la tecnología con la innovación.</p>
+                    </div>
+                    <div class="content-item">
+                        <h4>💭 Filosofía Personal</h4>
+                        <p>Creo en la importancia del balance entre la pasión y la razón. Aunque no pueda convertirme en futbolista profesional, sigo amando el deporte como parte de mi estilo de vida. Busco desarrollarme como ingeniero innovador que pueda aportar soluciones a los desafíos del mundo moderno.</p>
+                    </div>
+                </div>
+
+                <!-- TAB: FÚTBOL -->
+                <div id="futbol" class="tab-content">
+                    <h3>Mi Pasión por el Fútbol</h3>
+                    <div class="content-item">
+                        <h4>⚽ El Deporte Rey</h4>
+                        <p><strong>El fútbol es mi mayor amor.</strong> Es más que un deporte, es una pasión que ha definido gran parte de mi vida. La belleza del juego, la estrategia, la velocidad y el trabajo en equipo me cautivan completamente.</p>
+                    </div>
+                    <div class="content-item">
+                        <h4>🏆 Mi Sueño Profesional</h4>
+                        <p>Desde pequeño, mi mayor aspiración fue ser futbolista profesional. Aunque reconozco que los caminos de la vida toman direcciones inesperadas, este sueño sigue siendo importante para mí y representa mi determinación y espíritu de lucha.</p>
+                    </div>
+                    <div class="content-item">
+                        <h4>👥 Beneficios del Fútbol</h4>
+                        <p><strong>Trabajo en equipo:</strong> El fútbol enseña la importancia de colaborar y confiar en tus compañeros. <strong>Disciplina:</strong> Requiere entrenamiento constante y dedicación. <strong>Salud mental:</strong> Libera estrés y genera alegría. <strong>Liderazgo:</strong> Desarrolla habilidades de liderazgo y toma de decisiones.</p>
+                    </div>
+                    <div class="content-item">
+                        <h4>📊 Estadísticas del Fútbol</h4>
+                        <p>El fútbol es el deporte más popular del mundo con aproximadamente <strong>4 mil millones de aficionados</strong>. En México, es una parte integral de nuestra cultura. La estrategia, técnica y táctica son fundamentales para el éxito.</p>
+                    </div>
+                    <div class="content-item">
+                        <h4>🎯 Leccionas Vitales</h4>
+                        <p>El fútbol me ha enseñado que <strong>los errores son oportunidades de aprendizaje</strong>, que la <strong>persistencia vence obstáculos</strong>, y que <strong>nunca es tarde para intentar algo nuevo</strong>. Estas lecciones aplican a la vida académica y profesional.</p>
+                    </div>
+                </div>
+
+                <!-- TAB: BASQUETBOL -->
+                <div id="basquetbol" class="tab-content">
+                    <h3>Basquetbol: Otra Pasión</h3>
+                    <div class="content-item">
+                        <h4>🏀 El Deporte de la Velocidad</h4>
+                        <p>El basquetbol es un deporte dinámico que requiere rapidez, agilidad y precisión. Con equipos de 5 jugadores por lado, es un juego donde cada movimiento cuenta y el trabajo en equipo es esencial para la victoria.</p>
+                    </div>
+                    <div class="content-item">
+                        <h4>💪 Desarrollo Físico</h4>
+                        <p><strong>Resistencia cardiovascular:</strong> El basquetbol fortalece el corazón y los pulmones. <strong>Agilidad:</strong> Mejora los reflejos y la coordinación. <strong>Fuerza:</strong> Desarrolla músculos en piernas, brazos y core. <strong>Flexibilidad:</strong> Aumenta el rango de movimiento.</p>
+                    </div>
+                    <div class="content-item">
+                        <h4>🧠 Beneficios Mentales</h4>
+                        <p>El basquetbol requiere pensamiento estratégico, toma rápida de decisiones y concentración. Mejora la confianza en uno mismo y proporciona un excelente escape para el estrés diario. Es un deporte que enseña adaptabilidad ante cambios constantes en el juego.</p>
+                    </div>
+                    <div class="content-item">
+                        <h4>🌍 Alcance Global</h4>
+                        <p>El basquetbol es practicado en <strong>más de 200 países</strong> con aproximadamente <strong>825 millones de aficionados</strong>. Torneos como la NBA, EuroLiga y Campeonatos Mundiales atraen a millones de espectadores.</p>
+                    </div>
+                    <div class="content-item">
+                        <h4>🏅 Valores Deportivos</h4>
+                        <p>El basquetbol promueve <strong>respeto por el rival</strong>, <strong>sportsmanship</strong>, <strong>trabajo colectivo</strong> y <strong>excelencia personal</strong>. Son valores que trascenden la cancha y se aplican en la vida profesional y social.</p>
+                    </div>
+                </div>
+
+                <!-- TAB: SALUD -->
+                <div id="salud" class="tab-content">
+                    <h3>Salud y Bienestar</h3>
+                    <div class="content-item">
+                        <h4>🏥 Importancia de la Salud</h4>
+                        <p>La salud es nuestra riqueza más valiosa. Una vida saludable nos permite ser productivos, felices y alcanzar nuestros objetivos. Es fundamental cuidar tanto la salud física como mental.</p>
+                    </div>
+                    <div class="content-item">
+                        <h4>🥗 Nutrición Adecuada</h4>
+                        <p><strong>Proteínas:</strong> Esenciales para construir músculo. <strong>Carbohidratos:</strong> Proporcionan energía. <strong>Grasas saludables:</strong> Apoyan funciones cerebrales. <strong>Vitaminas y minerales:</strong> Fortalecen el sistema inmunológico. Consumir una dieta balanceada es clave para un rendimiento óptimo.</p>
+                    </div>
+                    <div class="content-item">
+                        <h4>🏃 Ejercicio Regular</h4>
+                        <p>La OMS recomienda <strong>150 minutos de actividad física moderada por semana</strong> para adultos. El ejercicio regular reduce el riesgo de enfermedades crónicas, mejora la salud mental y aumenta la expectativa de vida. Deportes como fútbol y basquetbol son excelentes opciones.</p>
+                    </div>
+                    <div class="content-item">
+                        <h4>😴 Descanso Adecuado</h4>
+                        <p>Los adolescentes necesitan <strong>8-10 horas de sueño diario</strong> para un óptimo desarrollo. El sueño es crucial para la memoria, el aprendizaje, la reparación celular y la regulación emocional. La privación de sueño afecta el rendimiento académico y deportivo.</p>
+                    </div>
+                    <div class="content-item">
+                        <h4>🧠 Salud Mental</h4>
+                        <p>Tan importante como la salud física. Es necesario manejar el estrés, mantener relaciones saludables, practicar mindfulness y buscar ayuda profesional cuando sea necesario. El equilibrio es fundamental para una vida plena y satisfactoria.</p>
+                    </div>
+                </div>
+
+                <!-- TAB: NEGOCIOS -->
+                <div id="negocios" class="tab-content">
+                    <h3>Mundo de los Negocios</h3>
+                    <div class="content-item">
+                        <h4>💼 Emprendimiento e Innovación</h4>
+                        <p>El mundo empresarial es un campo de oportunidades infinitas. Emprender requiere <strong>visión, creatividad, persistencia y análisis estratégico</strong>. Los negocios son el motor de la economía global y fuente de empleo para millones.</p>
+                    </div>
+                    <div class="content-item">
+                        <h4>📈 Tendencias Actuales</h4>
+                        <p><strong>Transformación Digital:</strong> Las empresas modernos están digitalizando procesos. <strong>Sostenibilidad:</strong> Negocios ecológicos son cada vez más demandados. <strong>E-commerce:</strong> Ventas online continúan creciendo. <strong>Inteligencia Artificial:</strong> Revoluciona industrias enteras.</p>
+                    </div>
+                    <div class="content-item">
+                        <h4>🎯 Habilidades Empresariales</h4>
+                        <p><strong>Liderazgo:</strong> Inspirar y guiar equipos. <strong>Comunicación:</strong> Transmitir ideas efectivamente. <strong>Gestión financiera:</strong> Administrar recursos. <strong>Análisis de mercado:</strong> Entender oportunidades y amenazas. <strong>Negociación:</strong> Cerrar acuerdos beneficiosos.</p>
+                    </div>
+                    <div class="content-item">
+                        <h4>💡 Estrategias de Éxito</h4>
+                        <p><strong>Innovación constante:</strong> Adaptarse a cambios del mercado. <strong>Servicio al cliente:</strong> Satisfacción como prioridad. <strong>Redes de contactos:</strong> Construir relaciones valiosas. <strong>Educación continua:</strong> Aprender siempre. <strong>Riesgo calculado:</strong> Osar sin ser imprudente.</p>
+                    </div>
+                    <div class="content-item">
+                        <h4>🚀 Conexión con Ingeniería</h4>
+                        <p>La <strong>Ingeniería Industrial</strong> combina perfectamente negocios y tecnología. Permite optimizar procesos, reducir costos y mejorar eficiencia. Es ideal para quienes desean emprender o liderar iniciativas innovadoras.</p>
+                    </div>
+                </div>
+
+                <!-- TAB: VIDEOJUEGOS -->
+                <div id="videojuegos" class="tab-content">
+                    <h3>Videojuegos Reconocidos</h3>
+                    <div class="content-item">
+                        <h4>🎮 La Industria de los Videojuegos</h4>
+                        <p>La industria de videojuegos es ahora <strong>más grande que el cine y la música combinados</strong>, generando más de <strong>$184 mil millones anuales</strong>. Es una industria en constante evolución con millones de jugadores conectados globalmente.</p>
+                    </div>
+                    <div class="content-item">
+                        <h4>🏆 The Legend of Zelda: Breath of the Wild</h4>
+                        <p>Revolucionó el género de aventura con su enfoque de mundo abierto. Ganador de innumerables premios Game of the Year, ofrece libertad total al jugador para explorar y resolver problemas de múltiples formas. Es considerado una obra maestra moderna.</p>
+                    </div>
+                    <div class="content-item">
+                        <h4>🏢 The Sims 4</h4>
+                        <p>Un simulador de vida que permite crear y controlar personajes virtuales. Es excelente para entender dinámicas sociales y gestión de recursos. Más de <strong>200 millones de jugadores</strong> a nivel mundial disfrutan este juego.</p>
+                    </div>
+                    <div class="content-item">
+                        <h4>🎯 Valorant</h4>
+                        <p>Videojuego de estrategia competitivo que combina habilidad con trabajo en equipo. Generó una escena de esports multimillonaria con torneos profesionales globales. Requiere coordinación, comunicación y toma de decisiones rápidas.</p>
+                    </div>
+                    <div class="content-item">
+                        <h4>🌟 Minecraft</h4>
+                        <p>El videojuego más vendido de todos los tiempos con <strong>más de 300 millones de copias</strong>. Promueve creatividad y resolución de problemas. Es utilizado en educación para enseñar STEM, arquitectura e ingeniería.</p>
+                    </div>
+                    <div class="content-item">
+                        <h4>🚀 Oportunidades en Gaming</h4>
+                        <p>La industria ofrece carreras en <strong>desarrollo de juegos, diseño gráfico, ingeniería de software, gestión de proyectos y esports</strong>. La Ingeniería Aeronáutica e Industrial son relevantes en desarrollo de motores de juegos y optimización de rendimiento.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            // Ocultar todos los tab-content
+            const contents = document.getElementsByClassName("tab-content");
+            for (let i = 0; i < contents.length; i++) {
+                contents[i].classList.remove("active");
+            }
+
+            // Remover clase active de todos los botones
+            const buttons = document.getElementsByClassName("tab-button");
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove("active");
+            }
+
+            // Mostrar el tab actual y marcar el botón como activo
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+
+</body>
+</html>
