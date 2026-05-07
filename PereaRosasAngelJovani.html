@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autobiografía | Angel Jovani Perea Rosas</title>
+    <style>
+        :root {
+            --primary-blue: #0056b3;
+            --accent-blue: #007bff;
+            --dark-gray: #333;
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.8;
+        }
+
+        /* Encabezado Impactante */
+        header {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ffffff 0%, #e9ecef 100%);
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            color: white;
+            text-shadow: 
+                -2px -2px 0 var(--primary-blue),  
+                 2px -2px 0 var(--primary-blue),
+                -2px  2px 0 var(--primary-blue),
+                 2px  2px 0 var(--primary-blue),
+                 8px 8px 20px rgba(0,0,0,0.15);
+            transition: all 0.4s ease;
+        }
+
+        h1:hover {
+            transform: translateY(-5px);
+            text-shadow: -3px -3px 0 var(--accent-blue), 3px -3px 0 var(--accent-blue), -3px 3px 0 var(--accent-blue), 3px 3px 0 var(--accent-blue);
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            font-weight: 300;
+            margin-top: 10px;
+            letter-spacing: 2px;
+        }
+
+        /* Contenedor de Historia */
+        .container {
+            max-width: 900px;
+            margin: -50px auto 50px;
+            padding: 20px;
+        }
+
+        section {
+            background: white;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary-blue);
+            transition: transform 0.3s ease;
+        }
+
+        section:hover {
+            transform: scale(1.02);
+        }
+
+        h2 {
+            color: var(--primary-blue);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .date-tag {
+            font-size: 0.9rem;
+            background: var(--primary-blue);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        /* Estilo para destacar logros */
+        .highlight {
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        /* Pie de página */
+        footer {
+            text-align: center;
+            padding: 50px;
+            background: var(--light-bg);
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        /* Responsivo */
+        @media (max-width: 600px) {
+            section { padding: 20px; }
+            h1 { letter-spacing: 2px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Autobiografía</h1>
+        <div class="subtitle">Angel Jovani Perea Rosas</div>
+        <p style="max-width: 600px; margin-top: 20px; font-style: italic;">
+            "Un viaje a través del aprendizaje, la resiliencia y el crecimiento personal."
+        </p>
+    </header>
+
+    <div class="container">
+        
+        <section>
+            <h2><span>👶</span> Orígenes y Familia</h2>
+            <div class="date-tag">Desde 2008</div>
+            <p>
+                Nací el <span class="highlight">5 de julio del 2008</span> en el Estado de México. Mi historia comienza bajo el cuidado y guía de mi madre, <span class="highlight">Elizabeth</span>. Ella no solo fue mi pilar, sino también mi maestra de paciencia; de pequeño, mi energía era inagotable y mi hiperactividad me mantenía siempre en movimiento, explorando el mundo a mi alrededor.
+            </p>
+        </section>
+
+        <section>
+            <h2><span>🎓</span> Primeros Pasos: Nuevo Milenio</h2>
+            <div class="date-tag">Kinder</div>
+            <p>
+                A la temprana edad de 3 años, inicié mi formación en el colegio <strong>"Nuevo Milenio"</strong>. Fue una etapa crucial que definió mis habilidades actuales. Mientras que para otros niños era juego, yo ya me sumergía en el mundo de la <span class="highlight">computación, el inglés y la danza</span>, materias que me dieron una ventaja competitiva y una visión distinta desde la infancia.
+            </p>
+        </section>
+
+        <section>
+            <h2><span>🏆</span> Excelencia Académica y Creatividad</h2>
+            <div class="date-tag">Primaria - Niños Héroes</div>
+            <p>
+                En la escuela primaria <strong>"Niños Héroes"</strong>, consolidé mi compromiso con el estudio. Durante todos los grados, mantuve el <span class="highlight">primer lugar con el promedio más alto de mi generación</span>. 
+            </p>
+            <p>
+                Pero no todo era libros; aquí descubrí mi pasión por el <strong>basketball</strong> y comencé a desarrollar una faceta artística, dibujando todo aquello que captaba mi atención. Fue una época de formación de amistades duraderas y descubrimiento de talentos.
+            </p>
+        </section>
+
+        <section>
+            <h2><span>💻</span> Desafíos y Resiliencia</h2>
+            <div class="date-tag">Secundaria</div>
+            <p>
+                La secundaria representó un reto inesperado. Debido a la pandemia, comencé mis estudios de forma virtual. La transición a lo presencial fue compleja socialmente, ya que los lazos grupales ya estaban formados. 
+            </p>
+            <p>
+                A pesar de los obstáculos sociales, mi rendimiento no decayó: obtuve el <span class="highlight">segundo mejor promedio de la generación</span>. Además, refiné mis habilidades de dibujo técnico gracias al taller de <strong>Arquitectura</strong>, transformando un periodo difícil en una oportunidad de crecimiento técnico.
+            </p>
+        </section>
+
+        <section>
+            <h2><span>✨</span> El Presente: Un Giro Inesperado</h2>
+            <div class="date-tag">Actualidad</div>
+            <p>
+                Hoy me encuentro en la preparatoria. Aunque inicialmente no era mi primera opción, el destino probó que estaba en el lugar correcto. Me he consolidado como el <span class="highlight">mejor estudiante de mi salón</span>, pero lo más valioso ha sido el crecimiento humano.
+            </p>
+            <p>
+                He construido recuerdos imborrables y amistades profundas. A solo unos meses de concluir esta etapa, miro atrás con gratitud, sabiendo que este proceso ha sido, sin duda, una de las mejores experiencias de mi vida.
+            </p>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Angel Jovani Perea Rosas | Diseñado para mi espacio personal</p>
+    </footer>
+
+</body>
+</html>
